@@ -15,6 +15,8 @@ public class Chip : MonoBehaviour
 
 
 
+
+
     }
 
     void Start()
