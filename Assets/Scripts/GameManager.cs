@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
     public int column = 3;
     public Vector3 target;
     public Vector3 SpawnPosition;
-    public float _speed = 5f;
+    public float speed = 5f;
 
 
 
 
     Player activePlayer = Player.One;
 
+    
 
 
     public void Awake()
@@ -26,14 +27,14 @@ public class GameManager : MonoBehaviour
             Debug.LogError("You must set 'exampleChip to a valid game prefab.'");
         }
 
-        // Start/ SpawnPoint exampleChip
+        // SpawnPoint exampleChip
         SpawnPosition = BoardPositions.GetWorldPositionAboveBoard(column);
 
-        // Ende/ Target exampleChip
+        // Target exampleChip
         // target = BoardPositions.GetWorldPosition(row, column);
 
         // Test BoardPosition unabhängiges target 
-        target = new Vector3 (3, 3, 0);
+        // target = new Vector3 (3, 3, 0);
       
 
         
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
 
 
 
+
     void AddStone(int column)
     {
         Debug.Log($"Add Stone {activePlayer} to column {column}.");
@@ -63,8 +65,9 @@ public class GameManager : MonoBehaviour
         // Münze (exampleChip) über Spielbrett spawnen
         Vector3 SpawnPosition = BoardPositions.GetWorldPositionAboveBoard(column);
         Instantiate(exampleChip, SpawnPosition, Quaternion.identity);
-        isInstatiated = true;
+        // isInstatiated = true;
 
+        /*
 
         if (isInstatiated == true)
         {
@@ -80,71 +83,103 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Chip bewegt sich nicht");
         }
-
+        */
 
     }
 
-/*
+
+    private void Update()
+    {
+        MoveStone();
+    }
+
+
     void MoveStone()
     {
+        Vector3 WolrdPosition = BoardPositions.GetWorldPosition(1f, 2);
 
-        // Get Wolrd Position
-        Vector3 GetWorldPosition(float row, int column)
-        {
-
-            return new Vector3(row, column);
-
-        }
-
-        if (isInstatiated == true)
-        {
-            Debug.Log(" is Instatiated = true ");
-        }
-
-        // Versuch 3:
-        if (isInstatiated == true)
-        {
-            Debug.Log("Chip sollte sich eig bewegen");
-
-            exampleChip.transform.position = GetWorldPosition(3.0f, 2);
-            //exampleChip.transform.position = Vector3.MoveTowards(SpawnPosition,target, _speed);
-
-            Debug.Log("x = " + exampleChip.transform.position.x + " & y = " + exampleChip.transform.position.y);
-        }
-
-        else
-        {
-            Debug.Log("Chip bewegt sich nicht");
-        }
+        exampleChip.transform.position = WolrdPosition;
 
 
-            // Versuch 2:
-
-            //transform.position = transform.position + new Vector3(0, -1, 0);
-
-            // Versuch 1:
+        Debug.Log(exampleChip.transform.position);
 
 
-            //GameObject SpawnCoin = Instantiate(exampleChip,SpawnPosition, Quaternion.identity);
-            //SpawnCoin.transform.position = transform.position + new Vector3(0, -1, 0) * Time.deltaTime;
-
-            // Münze in row fallen lassen 
     }
 
+    
 
 
-    /* 
-     
-     private void Update()
-     {
-        AddStone(column);
-        //MoveStone();
-     }
 
-    */
+
+
+
+
+    /*
+        void MoveStone()
+        {
+
+            // Get Wolrd Position
+            Vector3 GetWorldPosition(float row, int column)
+            {
+
+                return new Vector3(row, column);
+
+            }
+
+            if (isInstatiated == true)
+            {
+                Debug.Log(" is Instatiated = true ");
+            }
+
+            // Versuch 3:
+            if (isInstatiated == true)
+            {
+                Debug.Log("Chip sollte sich eig bewegen");
+
+                exampleChip.transform.position = GetWorldPosition(3.0f, 2);
+                //exampleChip.transform.position = Vector3.MoveTowards(SpawnPosition,target, speed);
+
+                Debug.Log("x = " + exampleChip.transform.position.x + " & y = " + exampleChip.transform.position.y);
+            }
+
+            else
+            {
+                Debug.Log("Chip bewegt sich nicht");
+            }
+
+
+                // Versuch 2:
+
+                //transform.position = transform.position + new Vector3(0, -1, 0);
+
+                // Versuch 1:
+
+
+                //GameObject SpawnCoin = Instantiate(exampleChip,SpawnPosition, Quaternion.identity);
+                //SpawnCoin.transform.position = transform.position + new Vector3(0, -1, 0) * Time.deltaTime;
+
+                // Münze in row fallen lassen 
+        }
+
+
+
+        /* 
+
+         private void Update()
+         {
+            AddStone(column);
+            //MoveStone();
+         }
+
+        */
+
+
+
+
 
 
 }
+
 
 
 

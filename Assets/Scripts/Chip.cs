@@ -5,16 +5,27 @@ using UnityEngine;
 
 public class Chip : MonoBehaviour
 {
-    // GameManager gameManager;
-    // public GameObject exampleChip;
+    GameManager gameManager;
+    //public GameObject exampleChip;
+
+
+    // Transform.position = new Vector3(0, 0, 0);
+
+
+    void MoveStone()
+    {
+        gameManager.exampleChip.transform.position += Vector3.down;
+
+    }
+
 
     // Start is called before the first frame update
     private void Awake()
     {
-        // gameManager.exampleChip.transform.position;
 
+        
 
-
+        
 
 
     }
