@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4332082670159928576}
   - component: {fileID: 5880350193935094191}
   - component: {fileID: 9146080777892899766}
+  - component: {fileID: 8339807616984963644}
   m_Layer: 0
   m_Name: ExampleChip
   m_TagString: Untagged
@@ -105,8 +106,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820168822466199623}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ba893627e8cc6d4283a7e2c9d8e6fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8339807616984963644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820168822466199623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553f1e7fa98204c57b8ac47812475928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  exampleChip: {fileID: 1820168822466199623}

@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        MoveStone();
+        // MoveStone();
     }
 
 
@@ -98,11 +98,13 @@ public class GameManager : MonoBehaviour
     {
         Vector3 WolrdPosition = BoardPositions.GetWorldPosition(1f, 2);
 
-        exampleChip.transform.position = WolrdPosition;
+        if (exampleChip != null)
+        {
+            transform.position = WolrdPosition;
 
 
-        Debug.Log(exampleChip.transform.position);
-
+            Debug.Log(transform.position);
+        }
 
     }
 
