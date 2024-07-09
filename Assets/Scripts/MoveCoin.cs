@@ -47,17 +47,73 @@ public class MoveCoin : MonoBehaviour
 
         */
 
-        
 
-        if (!isInstantiated)
+
+
+
+
+
+
+
+        /*
+
+        if ((isInstantiated) & column == 0)
         {
-            InitializeStone(0f,0);
+            InitializeStone(4f,1);
+
+          
         }
-        
+
+
+        if (isInstantiated = true & column == 1)
+        {
+            InitializeStone(4f, 0);
+
+            Debug.Log("isInstantiated funktioniert, yeah ! ");
+        }
+
+        if (column == 2)
+        {
+            InitializeStone(3f, 0);
+        }
+
+        if (column == 3)
+        {
+            InitializeStone(2f, 0);
+        }
+
+        if (column == 4)
+        {
+            InitializeStone(1f, 0);
+        }
+
+        if (column == 5)
+        {
+            InitializeStone(5f, 0);
+        }
+
+        if (column == 0)
+        {
+            InitializeStone(5f, 0);
+        }
+
+        */
+
+
+        if (isInstantiated)               //  & column == 0
+        {
+            InitializeStone(4f, 1);
+
+
+        }
+
+
 
         if (isInstantiated)
         {
             MoveStone();
+
+            Debug.Log("MoveStone funktioniert");
         }
        
 
@@ -67,10 +123,16 @@ public class MoveCoin : MonoBehaviour
     {
         this.row = row;
         this.column = column;
+
+        //row = 5f;
+        //column = 5;
+
         // Vector3 targetPosition = BoardPositions.GetWorldPosition(row, column);
 
         isInstantiated = true;
-        Debug.Log("Stone wurde initialisiert");
+
+        Debug.Log("Stone wurde initialized");
+        // Debug.Log("Stone wurde initialisiert");
         // Debug.Log("X: " + exampleChip.transform.position.x + "Y: " + exampleChip.transform.position.y);
 
         
