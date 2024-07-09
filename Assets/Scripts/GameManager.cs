@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject exampleChip;
     public bool isInstatiated = false;
-    public float row = 1.0f;
-    public int column = 3;
+    public float row = 3.0f;
+    public int column = 5;
     public Vector3 target;
     public Vector3 SpawnPosition;
     public float speed = 5f;
+    public MoveCoin moveCoinScript;
 
 
 
@@ -67,6 +68,15 @@ public class GameManager : MonoBehaviour
         Instantiate(exampleChip, SpawnPosition, Quaternion.identity);
         // isInstatiated = true;
 
+        if (column == 0)
+        {
+            // MoveCoin();
+        }
+
+
+
+
+
         /*
 
         if (isInstatiated == true)
@@ -90,24 +100,25 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // MoveStone();
+        
     }
 
-
+    /*
     void MoveStone()
     {
         Vector3 WolrdPosition = BoardPositions.GetWorldPosition(1f, 2);
 
         if (exampleChip != null)
         {
-            transform.position = WolrdPosition;
+            exampleChip.transform.position = WolrdPosition;
 
 
-            Debug.Log(transform.position);
+            Debug.Log(exampleChip.transform.position);
         }
-
+    
     }
-
+    */
+}
     
 
 
@@ -180,7 +191,7 @@ public class GameManager : MonoBehaviour
 
 
 
-}
+
 
 
 
