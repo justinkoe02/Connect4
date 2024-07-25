@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject exampleChip;
     public bool isInstatiated = false;
-    public float row = 3.0f;
-    public int column = 5;
+    public float row = 5.0f;
+    public int column = 3;
     public Vector3 target;
     public Vector3 SpawnPosition;
     public float speed = 5f;
@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour
 
         // Test BoardPosition unabhängiges target 
         // target = new Vector3 (3, 3, 0);
-      
 
-        
+
+        // AddStone(column);
 
 
     }
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    
     void AddStone(int column)
     {
         Debug.Log($"Add Stone {activePlayer} to column {column}.");
@@ -65,15 +65,26 @@ public class GameManager : MonoBehaviour
 
         // Münze (exampleChip) über Spielbrett spawnen
         Vector3 SpawnPosition = BoardPositions.GetWorldPositionAboveBoard(column);
-        Instantiate(exampleChip, SpawnPosition, Quaternion.identity);
+        exampleChip = Instantiate(exampleChip, SpawnPosition, Quaternion.identity);
         // isInstatiated = true;
+
+        MoveCoin moveCoin = exampleChip.AddComponent<MoveCoin>();
+        moveCoin.Initialize(row, column, speed);
+    }
+    
+
+
+
+        /*
 
         if (column == 0)
         {
-            // MoveCoin();
+            moveCoinScript.InitializeStone(4f,1);
+
+            moveCoinScript.MoveStone();
         }
 
-
+        */
 
 
 
@@ -95,12 +106,12 @@ public class GameManager : MonoBehaviour
         }
         */
 
-    }
+    
 
 
     private void Update()
     {
-        
+        // AddStone(column);
     }
 
     /*

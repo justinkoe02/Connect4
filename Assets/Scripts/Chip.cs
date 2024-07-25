@@ -6,7 +6,9 @@ using UnityEngine;
 public class Chip : MonoBehaviour
 {
     GameManager gameManager;
-    //public GameObject exampleChip;
+    // GameObject exampleChip;
+
+   
 
 
     // Transform.position = new Vector3(0, 0, 0);
@@ -14,7 +16,7 @@ public class Chip : MonoBehaviour
 
     void MoveStone()
     {
-        gameManager.exampleChip.transform.position += Vector3.down;
+        // gameManager.exampleChip.transform.position += Vector3.down;
 
     }
 
