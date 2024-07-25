@@ -67,12 +67,13 @@ public class MoveCoin : MonoBehaviour
             this.column = 6;
         }
 
-
+        /*
         positionLocked = true;
         for (this.row = 0, positionLocked = true, ++this.row){
 
             Debug.Log("positionLocked works");
         }
+        */
 
         targetPosition = BoardPositions.GetWorldPosition(this.row, this.column);
     }
