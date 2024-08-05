@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    PlayerColors playerColors;
     Player activePlayer = Player.One;
 
     
@@ -40,7 +41,13 @@ public class GameManager : MonoBehaviour
 
         // AddStone(column);
 
+       
+        playerColors = GetComponent<PlayerColors>();
 
+        if (playerColors == null)
+        {
+            Debug.Log("PlayerColors sind null!");
+        }
     }
 
 
@@ -70,6 +77,12 @@ public class GameManager : MonoBehaviour
 
         MoveCoin moveCoin = exampleChip.AddComponent<MoveCoin>();
         moveCoin.Initialize(row, column, speed);
+
+        Renderer renderer = exampleChip.GetComponent<Renderer>();
+        if(renderer != null) {
+            renderer.material.color = playerColors.GetPlayerColor(activePlayer, highlight: false);
+            Debug.Log("Color Renderer funktioniert");
+        }
     }
     
 
@@ -111,7 +124,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
         // AddStone(column);
+        /*
+        if(playerColors != null) {
+            exampleChip.= playerColors.GetPlayerColor(activePlayer, highlight: true);
+
+            Debug.Log(activePlayer + "GetPlayerColor funkztioniert");
+        }
+        */
+
+
+
     }
 
     /*

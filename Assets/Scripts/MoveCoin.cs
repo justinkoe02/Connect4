@@ -25,11 +25,16 @@ public class MoveCoin : MonoBehaviour
 
     public void Initialize(float row, int column, float speed){
         this.speed = speed;
+        this.row = row;
+        this.column = column;
 
         if(column == 0){
+
             this.row = 5f;
             this.column = 0;
-        }
+
+            positionLocked = true;
+        }   
 
         if (column == 1)
         {
@@ -67,15 +72,24 @@ public class MoveCoin : MonoBehaviour
             this.column = 6;
         }
 
+
+        targetPosition = BoardPositions.GetWorldPosition(this.row, this.column);
+
+        
+
+
         /*
-        positionLocked = true;
-        for (this.row = 0, positionLocked = true, ++this.row){
+        if (positionLocked)
+        {
+            // this.row = this.row - 1f * Time.deltaTime;
+            targetPosition = BoardPositions.GetWorldPosition(this.row -1, this.column);
 
             Debug.Log("positionLocked works");
         }
         */
 
-        targetPosition = BoardPositions.GetWorldPosition(this.row, this.column);
+
+     
     }
 
 
@@ -84,6 +98,63 @@ public class MoveCoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (this.row == 5)
+        {
+
+            positionLocked = true;
+            this.row -= 1;
+            targetPosition = BoardPositions.GetWorldPosition(this.row, this.column);
+
+            Debug.Log("wupp wupp ");
+        }
+        */
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+
+        //if(transform.position == targetPosition && positionLocked)
+        if (Vector3.Distance(transform.position, targetPosition) < 0.01f && positionLocked)
+          {
+
+            targetPosition = BoardPositions.GetWorldPosition(this.row -1f, this.column);
+            positionLocked = false;
+
+
+            if (row < 2f)
+            {
+                
+                Debug.Log("positionLocked wieder aus");
+            }
+
+            else
+            {
+                targetPosition = BoardPositions.GetWorldPosition(row, column);
+
+                Debug.Log("neue Position ist: " + targetPosition);
+            }
+
+            
+          }
+
+        /*
+        for (; positionLocked == true; --this.row)
+        {
+
+            Debug.Log("positionLocked works");
+
+            
+            if (this.row = 0f)
+            {
+                positionLocked = false;
+                Debug.Log("positionLocked wieder aus");
+            }
+            
+
+            targetPosition = BoardPositions.GetWorldPosition(this.row, this.column);
+        }
+        /*
+
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
         /*
@@ -259,7 +330,7 @@ public class MoveCoin : MonoBehaviour
         */
 
 
-       //moveStone();
+        //moveStone();
 
 
     }

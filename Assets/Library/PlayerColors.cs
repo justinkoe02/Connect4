@@ -28,6 +28,7 @@ public class PlayerColors : MonoBehaviour {
                 return playerOneColor;
             if (player == Player.Two)
                 return playerTwoColor;
+            Debug.Log("Color funktioniert");
         }
         return Color.magenta;
     }
