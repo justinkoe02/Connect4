@@ -78,11 +78,29 @@ public class GameManager : MonoBehaviour
         MoveCoin moveCoin = exampleChip.AddComponent<MoveCoin>();
         moveCoin.Initialize(row, column, speed);
 
+        //Farbe Coin festlegen
         Renderer renderer = exampleChip.GetComponent<Renderer>();
         if(renderer != null) {
             renderer.material.color = playerColors.GetPlayerColor(activePlayer, highlight: false);
             Debug.Log("Color Renderer funktioniert");
         }
+
+        //Spielerwechsel
+        changePLayer();
+
+
+    }
+
+    void changePLayer() {
+        if(activePlayer == Player.One) {
+            activePlayer = Player.Two;
+        }
+
+        else {
+            activePlayer = Player.One;
+        }
+
+        Debug.Log(activePlayer);
     }
     
 
@@ -125,7 +143,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 
-        // AddStone(column);
+        //AddStone(column);
         /*
         if(playerColors != null) {
             exampleChip.= playerColors.GetPlayerColor(activePlayer, highlight: true);

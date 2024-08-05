@@ -20,7 +20,8 @@ public class MoveCoin : MonoBehaviour
     private float speed;
     private Vector3 targetPosition;
 
-    private bool positionLocked = false;
+    // public int counter;
+    // private bool positionLocked = false;
 
 
     public void Initialize(float row, int column, float speed){
@@ -33,7 +34,9 @@ public class MoveCoin : MonoBehaviour
             this.row = 5f;
             this.column = 0;
 
-            positionLocked = true;
+
+            //positionLocked = true;
+
         }   
 
         if (column == 1)
@@ -112,7 +115,7 @@ public class MoveCoin : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-
+        /*
         //if(transform.position == targetPosition && positionLocked)
         if (Vector3.Distance(transform.position, targetPosition) < 0.01f && positionLocked)
           {
@@ -136,6 +139,7 @@ public class MoveCoin : MonoBehaviour
 
             
           }
+        */
 
         /*
         for (; positionLocked == true; --this.row)
